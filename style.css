@@ -1,0 +1,104 @@
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #000;
+	gap: 3rem;
+}
+
+.container {
+	background: white;
+	padding: 3rem;
+	box-shadow: 0 0 1rem rgb(255, 255, 255);
+	border-radius: 1rem;
+	width: 80%;
+}
+
+.container-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-2{
+    border-top: 0.2rem solid gray;
+    margin-top: 5rem;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+	color: #000;
+	text-align: center;
+}
+
+input {
+	width: 80%;
+	padding: 1rem;
+	font-size: 1.2rem;
+	border: 0.1rem solid #ccc;
+	border-radius: 0.9rem 0 0 0.9rem;
+	color: gray;
+}
+
+#addButton {
+	width: 20%;
+	font-size: 1.2rem;
+	padding: 1rem;
+	background: #6ac980;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border: 0.1rem solid #ccc;
+	border-radius: 0 0.9rem 0.9rem 0;
+}
+
+#addButton:hover {
+    background:  #14cd3f;
+}
+
+ul {
+	padding: 0;
+}
+
+#mge.hidden {
+    font-size: 1.5rem;
+    display: none;
+}
+
+#mge {
+    font-size: 2rem;
+}
+
+li {
+	display: flex;
+	color: gray;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+    width: 100%;
+	font-size: 1.2rem;
+	border-bottom: 0.1rem solid #ddd;
+}
+
+h4 {
+	text-align: center;
+	color: #c71b1b;
+}
+
+#removeButton {
+	padding: 1rem;
+	background: #ffd2d2;
+	border: none;
+	cursor: pointer;
+	border-radius: 0.9rem;
+}
+
+.completed {
+	text-decoration: line-through;
+	color: gray;
+}
