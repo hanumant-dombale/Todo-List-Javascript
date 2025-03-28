@@ -6,26 +6,24 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<link rel="stylesheet" href="./style.css" />
 		<title>To-Do List</title>
+		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
 		<div class="container">
-            <h2>Add Todo Item</h2>
-			<div class="container-1">
+			<h2>Todo List</h2>
+			<div class="task-container">
 				<input
 					type="text"
 					id="taskInput"
-					placeholder="Add a new task..."
+					placeholder="Enter a task"
 				/>
-				<button id="addButton" onclick="addTask()">
+				<button id="addTaskBtn" onclick="addTask()">
 					Add Task
 				</button>
 			</div>
-			<div class="container-2">
-				<h2>Todo List</h2>
-				<h4 id="mge">Add item in list</h4>
-
+			<h2>Tasks Items</h2>
+			<div class="task-list">
 				<ul id="taskList"></ul>
 			</div>
 		</div>

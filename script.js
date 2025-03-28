@@ -1,45 +1,72 @@
 let taskInput = document.getElementById("taskInput");
+let addTaskBtn = document.getElementById("addTaskBtn");
 let taskList = document.getElementById("taskList");
-let addButton = document.getElementById("addButton");
-let Mge = document.getElementById("mge");
 
-taskInput.addEventListener("keypress", clickEnter);
-
-function clickEnter(e) {
-	if (e.key === "Enter") {
-		e.preventDefault();
-		addButton.click();
-	}
-}
+taskInput.addEventListener("keydown", (e) => {
+	if (e.key === "Enter") addTask();
+});
 
 function addTask() {
 	let taskText = taskInput.value.trim();
 	if (taskText === "") return;
+	taskInput.value = "";
 
 	let li = document.createElement("li");
-	li.innerHTML = `<span onclick="toggleTask(this)"
+	li.innerHTML = `
+				<div>
+					<input
+						type="checkbox"
+						class="task-check"
+					/>
+					<span class="task-text"
 						>${taskText}</span
 					>
-					<button id="removeButton" onclick="removeTask(this)">
+				</div>
+				<div>
+					<button class="edit">
+						🗃️
+					</button>
+					<button class="delete">
 						❌
-					</button>`;
+					</button>
+				</div>
+			`;
 
-	if (taskList.childNodes.length < 0) {
-		Mge.classList.remove("hidden");
-	} else {
-		Mge.classList.add("hidden");
-		taskList.appendChild(li);
-		taskInput.value = "";
-	}
+	isChecked(li);
+
+	editTask(li);
+
+	removeTask(li);
+
+	taskList.appendChild(li);
 }
 
-function toggleTask(task) {
-	task.classList.toggle("completed");
+function isChecked(li) {
+	let checkBox = li.querySelector(".task-check");
+
+	checkBox.addEventListener("change", () => {
+		let taskText = li.querySelector(".task-text");
+		let editBtn = li.querySelector(".edit");
+
+		taskText.classList.toggle("completed", checkBox.checked);
+		editBtn.classList.toggle("hidden", checkBox.checked),
+			li.classList.toggle("completedLi", checkBox.checked);
+	});
 }
 
-function removeTask(button) {
-	button.parentElement.remove();
-	if (taskList.childNodes.length <= 0) {
-		Mge.classList.remove("hidden");
-	}
+function editTask(li) {
+	let editBtn = li.querySelector(".edit");
+
+	editBtn.addEventListener("click", () => {
+		let taskTextElement = li.querySelector(".task-text");
+
+		taskInput.value = taskTextElement.textContent;
+		taskInput.focus();
+		li.remove();
+	});
+}
+
+function removeTask(li) {
+	let deleteBtn = li.querySelector(".delete");
+	deleteBtn.addEventListener("click", () => li.remove());
 }
